@@ -6,11 +6,12 @@ services:
     ports:
       - "18983:8983"
     volumes:
-      - solr7-data:/opt/solr/server/solr/mycores
+      - ./docker/solr:/opt/solr/setup
     entrypoint:
       - docker-entrypoint.sh
       - solr-precreate
       - mycore
+      - /opt/solr/setup
 volumes:
   solr7-data:
     driver: local
